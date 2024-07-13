@@ -26,6 +26,11 @@ class Reports extends Controller {
     }
 
     private function is_admin() {
-        return isset($_SESSION['username']) && $_SESSION['username'] === 'admin';
+        if (!isset($_SESSION['username'])) {
+            return false;
+        }
+
+        $user = $this->user->get_user_by_username($_SESSION['username']);
+        return $user && $user['is_admin'] == 1;
     }
 }
