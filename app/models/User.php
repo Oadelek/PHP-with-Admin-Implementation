@@ -97,6 +97,19 @@ Class User {
                                                                                                                         $statement->bindParam(':username', $username, PDO::PARAM_STR);                                             $statement->bindParam(':password', $hashed_password, PDO::PARAM_STR);
                                                                                                                         if ($statement->execute()) {                                                                                  return "Admin user created successfully";                                                               } else {                                                                                                      return "Error creating admin user";                                                                     }                                                                                                      } else {                                                                                                       return "Admin user already exists";                                                                    }                                                                                                        }
 
+        public function get_login_counts() {
+            $db = db_connect();
+            $statement = $db->prepare("
+                SELECT username, COUNT(*) as login_count 
+                FROM login_attempts 
+                WHERE attempt = 'good' 
+                GROUP BY username 
+                ORDER BY login_count DESC
+            ");
+            $statement->execute();
+            return $statement->fetchAll(PDO::FETCH_ASSOC);
+        }
+
 
 }
 ?>
