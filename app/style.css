@@ -316,3 +316,29 @@ canvas {
   height: auto;
   margin-bottom: 20px;
 }
+
+body {
+  background-color: #f8f9fa;
+}
+
+.card {
+  border: none;
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.table-responsive {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.card-header h2 {
+  margin-bottom: 0;
+}
+
+.lead {
+  font-size: 1.1rem;
+}
