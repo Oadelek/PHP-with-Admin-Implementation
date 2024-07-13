@@ -34,9 +34,9 @@ if (!isset($_SESSION['auth']) || $_SESSION['auth'] != 1) {
                 <li class="nav-item">
                     <a class="nav-link" href="/reminder">My Reminders</a>
                 </li>
-                <?php if ($_SESSION['username'] === 'admin'): ?>
+                <?php if ($_SESSION['username'] === 'Admin'): ?>
                     <li class="nav-item">
-                        <a class="nav-link" href="/reports">Reports</a>
+                        <a class="nav-link" href="/Reports">Reports</a>
                     </li>
                 <?php endif; ?>
                 <li class="nav-item">
