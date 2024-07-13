@@ -26,8 +26,8 @@
 <p><?php echo htmlspecialchars($most_reminders['username']); ?> with <?php echo $most_reminders['reminder_count']; ?> reminders</p>
 
 <h2>Login Counts by Username</h2>
-<table class="table">
-    <thead>
+<table class="table table-striped">
+    <thead class="thead-dark">
         <tr>
             <th>Username</th>
             <th>Login Count</th>
