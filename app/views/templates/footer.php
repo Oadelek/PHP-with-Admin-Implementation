@@ -1,9 +1,16 @@
-<footer class="footer">
+</div>
+<footer class="footer mt-auto py-3 bg-light">
     <div class="container">
-        <p>&copy; <?php echo date('Y'); ?> Reminder App. All rights reserved.</p>
+        <span class="text-muted">&copy; <?php echo date('Y'); ?> Reminder App. All rights reserved.</span>
     </div>
 </footer>
-</div> <!-- Close content-wrapper -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+    var toastList = toastElList.map(function (toastEl) {
+        return new bootstrap.Toast(toastEl)
+    })
+    toastList.forEach(toast => toast.show())
+</script>
 </body>
 </html>
